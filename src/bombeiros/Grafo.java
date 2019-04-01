@@ -35,7 +35,6 @@ public class Grafo {
             for( int w=0; w < this.V; w++){
                 if( this.matriz[v][w]==1)
                     System.out.print(" "+w);
-                    
             }
             System.out.println();
         }
@@ -52,13 +51,13 @@ public class Grafo {
         if(v == w){
             System.out.println("é rota: "+rota);
         }
-        
+
         for(int j =2;j < this.V; j++ ){
             if(this.matriz[v][j] == 1){
                 visitado.add(j, true);
                 caminho(rota, j, w, i, visitado);
                 rota.remove(rota.size()-1);
             }
-        }
-    }
+        } 
+    }       
 }
