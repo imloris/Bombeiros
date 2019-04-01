@@ -49,10 +49,10 @@ public class Grafo {
         i++;
         rota.add(v);
         
-        if(v == w){  
+        if(v == w){
             System.out.println("é rota: "+rota);
-            
         }
+        
         for(int j =2;j < this.V; j++ ){
             if(this.matriz[v][j] == 1){
                 visitado.add(j, true);
@@ -61,23 +61,4 @@ public class Grafo {
             }
         }
     }
-    /*
-    public boolean fazcaminho(ArrayList<Integer>sequencia){ //verifica se é caminho
-        
-        int w = 1;
-        
-        for(int v= 0; v<=sequencia.size()-2; v++){
-            System.out.println("entrou");
-            if(this.matriz[sequencia.get(v)][sequencia.get(w)]!=1){
-                System.out.println("");
-                System.out.println("não é caminho: ");
-                System.out.println(sequencia);
-                return false;
-            }
-            if(w <= sequencia.size()-1){
-                w+=1;
-            }
-        }
-        return true;
-    }*/
 }

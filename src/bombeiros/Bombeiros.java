@@ -58,9 +58,9 @@ public class Bombeiros {
             }
             grafo.insere(verticex, verticey); //insere os pares restantes nas arestas seguintes
         }
+        
         System.out.println();
         grafo.mostra();
-        
         System.out.println();
         
 
