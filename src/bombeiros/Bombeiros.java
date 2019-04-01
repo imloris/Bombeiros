@@ -1,5 +1,8 @@
 package bombeiros;
 
+//Victor Carvalho
+//3 semestre - Jogos Digitais
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -60,16 +63,17 @@ public class Bombeiros {
             grafo.insere(verticex, verticey); //insere os pares restantes nas arestas seguintes
         }
         
+        for(int i = 0; i < grafo.getV(); i++){//insere os visitados
+        visitado.add(i, false);
+        }
+        
+        grafo.ciclo(visitado, 1, incendio);
+        
         System.out.println();
         grafo.mostra();
         System.out.println();
         
-
-        for(int i = 0; i < grafo.getV(); i++){//insere os visitados
-            visitado.add(i, false);
-        }
-        
-        grafo.caminho(sequencia, 1, incendio, -1, visitado); //printa os caminhos
+        grafo.caminho(sequencia, 1, incendio, -1); //printa os caminhos
 
     }
 }
