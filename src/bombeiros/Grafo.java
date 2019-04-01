@@ -29,7 +29,7 @@ public class Grafo {
         return false;
     }
     
-    public void mostra( ){
+    public void mostra(){
         for( int v=0; v < this.V; v++){
             System.out.print(v+":");
             for( int w=0; w < this.V; w++){
@@ -44,20 +44,34 @@ public class Grafo {
         return V;
     }
     
-    public void caminho(ArrayList<Integer>rota, int v, int w, int i, ArrayList<Boolean>visitado){//monta os caminho
-        i++;
+    public void caminho(ArrayList<Integer>rota, int v, int w, int i){//monta os caminho
         rota.add(v);
         
         if(v == w){
             System.out.println("é rota: "+rota);
         }
 
-        for(int j =2;j < this.V; j++ ){
+        for(int j = 2;j < this.V; j++ ){
             if(this.matriz[v][j] == 1){
-                visitado.add(j, true);
-                caminho(rota, j, w, i, visitado);
+                caminho(rota, j, w, i);
                 rota.remove(rota.size()-1);
             }
         } 
-    }       
+    }
+    
+    void ciclo(ArrayList<Boolean>visitado, int v, int w){ //verifica se ja foi visitado
+        visitado.set(v, true);
+        
+        for(int j = 1; j < this.V; j++){
+            if(this.matriz[v][j] == 1){
+                if(visitado.get(j) == false){
+                    ciclo(visitado, j, w);
+                    visitado.set(j, false);
+                } else {
+                    System.out.println("par "+v+" "+j+" forma ciclo");
+                    this.matriz[v][j] = 0;
+                }
+            }
+        }
+    }  
 }
